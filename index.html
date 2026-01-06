@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural Matrix - MNIST from Scratch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Neural Matrix</h1>
+</header>
+
+<main class="main-container">
+    <div class="panel" id="input-container">
+        <h3>Handwritten Input</h3>
+        <canvas id="drawing-board" width="280" height="280"></canvas>
+        <div class="controls">
+            <button onclick="clearCanvas()">Clear</button>
+            <button class="primary" onclick="predictDrawing()">Predict</button>
+        </div>
+        
+        <div class="prediction-bars">
+            <div id="prob-bars"></div>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Network Topology</h3>
+        <canvas id="vis-canvas"></canvas>
+    </div>
+
+    <div class="panel">
+        <h3>Training Engine</h3>
+        <div class="stats-panel">
+            <div class="stat-line"><span>Status:</span> <span id="status" style="color: var(--accent-glow)">System Ready</span></div>
+            <div class="stat-line"><span>Epochs:</span> <span id="epoch-count">0</span></div>
+            <div class="stat-line"><span>Loss:</span> <span id="loss-val">0.0000</span></div>
+        </div>
+        
+        <div class="controls">
+            <button class="primary" id="train-btn" onclick="startTraining()">Initialize Training</button>
+        </div>
+
+        <canvas id="loss-chart" width="300" height="150"></canvas>
+        <p style="font-size: 0.7rem; color: var(--text-dim); line-height: 1.4; margin-top: 1rem;">
+            Network trains on 0, 1, and 2 prototypes. Use "Predict" to see real-time weight activation based on your drawing.
+        </p>
+    </div>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
